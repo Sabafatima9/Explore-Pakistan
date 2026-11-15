@@ -40,10 +40,10 @@
   );
 }
 
-.hero-slide-1 { background-image: url('https://images.unsplash.com/photo-1570456492236-33b6a24e01f0?w=1800&q=80'); }
-.hero-slide-2 { background-image: url('https://images.unsplash.com/photo-1587474260584-136574528ed5?w=1800&q=80'); }
-.hero-slide-3 { background-image: url('https://images.unsplash.com/photo-1565953522043-baea26b83b7e?w=1800&q=80'); }
-.hero-slide-4 { background-image: url('https://images.unsplash.com/photo-1619546813926-a78fa6372cd2?w=1800&q=80'); }
+.hero-slide-1 { background-image: url('https://upload.wikimedia.org/wikipedia/commons/thumb/d/dc/Hunza_Valley_HDR.jpg/960px-Hunza_Valley_HDR.jpg'); }
+.hero-slide-2 { background-image: url('https://upload.wikimedia.org/wikipedia/commons/thumb/9/9f/Shangrila_resort_skardu.jpg/960px-Shangrila_resort_skardu.jpg'); }
+.hero-slide-3 { background-image: url('https://upload.wikimedia.org/wikipedia/commons/thumb/9/96/Mahodand_l.jpg/960px-Mahodand_l.jpg'); }
+.hero-slide-4 { background-image: url('https://upload.wikimedia.org/wikipedia/commons/thumb/c/c1/Fairy_Meadows%2C_Pakistan.jpg/960px-Fairy_Meadows%2C_Pakistan.jpg'); }
 
 /* Hero content */
 .hero-content {

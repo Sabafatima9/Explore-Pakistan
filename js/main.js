@@ -188,7 +188,7 @@ var destinations = [
     tags: ['Valley', 'Mountain', 'Scenic'],
     rating: '4.9',
     bestTime: 'Apr - Oct',
-    image: 'https://images.unsplash.com/photo-1570456492236-33b6a24e01f0?w=800&q=80',
+    image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/d/dc/Hunza_Valley_HDR.jpg/960px-Hunza_Valley_HDR.jpg',
     desc: 'A breathtaking valley cradled by towering Karakoram peaks, known for its cherry blossoms, ancient forts, and legendary hospitality.',
     fullDesc: 'Hunza Valley is one of Pakistan\'s most mesmerising destinations, nestled at an altitude of 2,438 metres in the Karakoram mountain range. The valley is famous for its stunning scenery of snow-capped peaks, terraced fields, and the turquoise Hunza River. The ancient Baltit Fort and Altit Fort stand as proud sentinels of the valley\'s rich history. Hunza is also celebrated for its cherry and apricot blossoms in spring, and the warm, welcoming culture of the Hunzakut people.',
     highlights: [
@@ -208,7 +208,7 @@ var destinations = [
     tags: ['Mountain', 'Adventure', 'Lakes'],
     rating: '4.8',
     bestTime: 'May - Sep',
-    image: 'https://images.unsplash.com/photo-1626686696467-7f1b7a7f8c1c?w=800&q=80',
+    image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/9/9f/Shangrila_resort_skardu.jpg/960px-Shangrila_resort_skardu.jpg',
     desc: 'The gateway to K2 and home to some of the world\'s most dramatic high-altitude lakes, deserts, and ancient Buddhist ruins.',
     fullDesc: 'Skardu is the administrative capital of Gilgit-Baltistan and serves as the base camp for expeditions to K2, the world\'s second-highest mountain. The city sits at 2,228 metres and is surrounded by towering mountains, cold deserts, and brilliant blue lakes. Shangrila Resort, known as the "Heaven on Earth," sits beside the remarkable Kachura Lake. The ancient Skardu Fort overlooks the Indus River, while the Sarfaranga Cold Desert offers a surreal landscape that defies imagination.',
     highlights: [
@@ -228,7 +228,7 @@ var destinations = [
     tags: ['Valley', 'Historical', 'Scenic'],
     rating: '4.7',
     bestTime: 'Mar - Nov',
-    image: 'https://images.unsplash.com/photo-1619546813926-a78fa6372cd2?w=800&q=80',
+    image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/9/96/Mahodand_l.jpg/960px-Mahodand_l.jpg',
     desc: 'The "Switzerland of Pakistan" -- lush green valleys, roaring rivers, ancient Buddhist ruins, and snow-covered peaks all in one.',
     fullDesc: 'Swat Valley, often called the "Switzerland of Pakistan," is a magnificent valley in Khyber Pakhtunkhwa known for its lush green meadows, crystal-clear rivers, and ancient history. The valley was once the heart of the Gandharan Buddhist civilization, and numerous ancient stupas and Buddhist sculptures can still be found here. Malam Jabba ski resort offers winter sports, while Kalam and Mahodand Lake are summer paradises.',
     highlights: [
@@ -248,7 +248,7 @@ var destinations = [
     tags: ['Valley', 'Lakes', 'Trekking'],
     rating: '4.8',
     bestTime: 'Jun - Sep',
-    image: 'https://images.unsplash.com/photo-1579547945413-497e1b99dac0?w=800&q=80',
+    image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/e/e6/Lulusar_Lake%2C_Naran%2C_KPK%2C_Pakistan.JPG/960px-Lulusar_Lake%2C_Naran%2C_KPK%2C_Pakistan.JPG',
     desc: 'Home to the magical Saif-ul-Malook Lake and the beautiful Kaghan Valley, a haven for trekkers, nature lovers, and honeymooners.',
     fullDesc: 'The Naran Kaghan Valley is one of Pakistan\'s most beloved tourist destinations, situated in Mansehra District. The valley is dominated by the legendary Lake Saif-ul-Malook, sitting at 3,224 metres above sea level and surrounded by snow-capped peaks. The glacial waters of the lake change colour with the sky, creating a magical atmosphere that has inspired centuries of Punjabi folklore.',
     highlights: [
@@ -268,7 +268,7 @@ var destinations = [
     tags: ['Mountain', 'Camping', 'Trek'],
     rating: '4.9',
     bestTime: 'May - Oct',
-    image: 'https://images.unsplash.com/photo-1565953522043-baea26b83b7e?w=800&q=80',
+    image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/c/c1/Fairy_Meadows%2C_Pakistan.jpg/960px-Fairy_Meadows%2C_Pakistan.jpg',
     desc: 'A magical alpine meadow at the base of Nanga Parbat, the world\'s ninth-highest mountain -- perhaps Pakistan\'s most iconic view.',
     fullDesc: 'Fairy Meadows (locally known as Joot) is an alpine meadow at 3,300 metres above sea level, right at the base of Nanga Parbat -- the world\'s ninth-highest mountain at 8,126 metres. The view of Nanga Parbat\'s Raikot face is considered one of the most breathtaking mountain panoramas on Earth. The meadow is accessible via a thrilling jeep track from Raikot Bridge, followed by a 2-3 hour hike through pine forests.',
     highlights: [
@@ -288,7 +288,7 @@ var destinations = [
     tags: ['Hill Station', 'Family', 'Scenic'],
     rating: '4.5',
     bestTime: 'Year-round',
-    image: 'https://images.unsplash.com/photo-1611892440504-42a792e24d32?w=800&q=80',
+    image: 'https://images.unsplash.com/photo-1448375240586-882707db888b?w=800&q=80',
     desc: 'Pakistan\'s favourite hill station -- a cool mountain retreat with colonial-era charm, pine forests, and panoramic Himalayan views.',
     fullDesc: 'Murree is Pakistan\'s most popular and accessible hill station, located about 50 km from Islamabad at an elevation of 2,290 metres. Established during the British colonial era, Murree retains much of its charming Victorian architecture along Mall Road. The town is surrounded by dense pine and oak forests, and in winter becomes a snowy wonderland.',
     highlights: [
@@ -308,7 +308,7 @@ var destinations = [
     tags: ['Historical', 'Culture', 'Food'],
     rating: '4.8',
     bestTime: 'Oct - Mar',
-    image: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&q=80',
+    image: 'https://images.unsplash.com/photo-1564507592333-c60657eea523?w=800&q=80',
     desc: 'The "Heart of Pakistan" -- a city of Mughal splendour, vibrant bazaars, world-class food, and centuries of living culture.',
     fullDesc: 'Lahore is Pakistan\'s cultural capital and second-largest city, known for its remarkable Mughal-era architecture, vibrant street life, and extraordinary food scene. The Lahore Fort and Badshahi Mosque rank among the finest examples of Mughal architecture in the world. Walled City (Old Lahore) is a labyrinth of narrow lanes, ancient havelis, and buzzing bazaars including the famous Anarkali Bazaar.',
     highlights: [
@@ -348,7 +348,7 @@ var destinations = [
     tags: ['Mountain', 'Adventure', 'Border'],
     rating: '4.7',
     bestTime: 'May - Nov',
-    image: 'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=800&q=80',
+    image: 'https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?w=800&q=80',
     desc: 'The world\'s highest paved international border crossing at 4,693 metres -- a dramatic pass connecting Pakistan and China.',
     fullDesc: 'Khunjerab Pass is the highest paved international border crossing in the world, sitting at 4,693 metres on the Karakoram Highway. The pass marks the border between Pakistan and China and is a point of immense natural beauty. The drive up the Karakoram Highway (KKH) through Hunza is itself one of the world\'s greatest road trips, often called the Eighth Wonder of the World.',
     highlights: [

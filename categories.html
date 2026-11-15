@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Explore Categories &mdash; Explore Pakistan</title>
+  <meta name="description" content="Browse Pakistan's tourist destinations by category -- mountains, valleys, historical places, beaches, lakes and cultural cities." />
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/categories.css" />
+</head>
+<body>
+
+<!-- ============================================================
+     NAVIGATION
+============================================================ -->
+<nav class="navbar" role="navigation" aria-label="Main navigation">
+  <div class="nav-container">
+    <a href="index.html" class="nav-logo" aria-label="Explore Pakistan Home">
+      <div class="logo-icon">PK</div>
+      <div class="logo-text">Explore Pakistan<span>Tourism Guide</span></div>
+    </a>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="destinations.html">Destinations</a></li>
+      <li><a href="categories.html" class="active">Categories</a></li>
+      <li><a href="about.html">About Us</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+    <button class="hamburger" aria-label="Toggle mobile menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+  <div class="mobile-menu">
+    <a href="index.html">Home</a>
+    <a href="destinations.html">Destinations</a>
+    <a href="categories.html" class="active">Categories</a>
+    <a href="about.html">About Us</a>
+    <a href="contact.html">Contact</a>
+  </div>
+</nav>
+
+<!-- ============================================================
+     PAGE HERO
+============================================================ -->
+<header class="page-hero" role="banner">
+  <div class="page-hero-content">
+    <h1>Explore by Category</h1>
+    <p>Find your perfect Pakistan experience &mdash; whatever kind of traveller you are</p>
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+      <a href="index.html">Home</a>
+      <span>&rsaquo;</span>
+      <span>Categories</span>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+  <!-- ============================================================
+       CATEGORY OVERVIEW CARDS
+  ============================================================ -->
+  <section class="categories-overview-section" aria-labelledby="categoriesOverviewTitle">
+    <div class="container">
+      <div class="section-title reveal">
+        <h2 id="categoriesOverviewTitle">What Type of Trip Are You Planning?</h2>
+        <p>Pakistan offers every kind of adventure &mdash; pick your style below</p>
+      </div>
+      <!-- Overview cards injected by categories.js -->
+      <div id="categoriesOverview" aria-live="polite"></div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       CATEGORY TABS
+  ============================================================ -->
+  <section class="cat-tabs-section" aria-label="Category tabs">
+    <div class="container">
+      <div id="categoryTabs" role="tablist" aria-label="Destination categories"></div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       CATEGORY DETAIL
+  ============================================================ -->
+  <section class="cat-detail-section" aria-labelledby="categoryDetailTitle">
+    <div class="container">
+      <div id="categoryDetail" aria-live="polite"></div>
+    </div>
+  </section>
+
+</main>
+
+<!-- ============================================================
+     FOOTER
+============================================================ -->
+<footer role="contentinfo">
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <div class="logo-text">Explore Pakistan<span>Tourism Guide</span></div>
+      <p>Your trusted companion for discovering Pakistan's hidden gems, iconic landmarks, and unforgettable experiences.</p>
+      <div class="footer-social">
+        <a href="#" aria-label="Facebook">FB</a>
+        <a href="#" aria-label="Instagram">IG</a>
+        <a href="#" aria-label="Twitter">TW</a>
+        <a href="#" aria-label="YouTube">YT</a>
+      </div>
+    </div>
+    <div class="footer-col">
+      <h4>Quick Links</h4>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="destinations.html">Destinations</a></li>
+        <li><a href="categories.html">Categories</a></li>
+        <li><a href="about.html">About Us</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Categories</h4>
+      <ul>
+        <li><a href="#">Mountains &amp; Passes</a></li>
+        <li><a href="#">Scenic Valleys</a></li>
+        <li><a href="#">Historical Places</a></li>
+        <li><a href="#">Beaches &amp; Coasts</a></li>
+        <li><a href="#">Cultural Cities</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Contact Info</h4>
+      <div class="footer-contact-item"><span class="icon">&#128205;</span><span>Islamabad, Pakistan</span></div>
+      <div class="footer-contact-item"><span class="icon">&#9993;</span><span>info@explorepakistan.com</span></div>
+      <div class="footer-contact-item"><span class="icon">&#128222;</span><span>+92 300 1234567</span></div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>&copy; 2024 Explore Pakistan. Made with love for Pakistan. | University Semester Project</p>
+  </div>
+</footer>
+
+<button id="scrollTopBtn" onclick="scrollToTop()" aria-label="Scroll to top">&#8679;</button>
+
+<script src="js/main.js"></script>
+<script src="js/categories.js"></script>
+</body>
+</html>

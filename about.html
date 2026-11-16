@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>About Us &mdash; Explore Pakistan</title>
   <meta name="description" content="Learn about Explore Pakistan -- our mission, Pakistan's culture, food, traditions, and natural beauty." />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
   <link rel="stylesheet" href="css/style.css" />
   <link rel="stylesheet" href="css/about.css" />
 </head>
@@ -16,7 +17,7 @@
 <nav class="navbar" role="navigation" aria-label="Main navigation">
   <div class="nav-container">
     <a href="index.html" class="nav-logo" aria-label="Explore Pakistan Home">
-      <div class="logo-icon">PK</div>
+      <div class="logo-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 42 42" width="28" height="28"><circle cx="21" cy="21" r="20" fill="none" stroke="rgba(255,255,255,0.3)" stroke-width="1"/><path d="M8 28 L21 10 L34 28 Z" fill="rgba(255,255,255,0.9)"/><path d="M13 28 L21 16 L29 28 Z" fill="rgba(201,168,76,0.8)"/><circle cx="21" cy="21" r="3" fill="white"/></svg></div>
       <div class="logo-text">Explore Pakistan<span>Tourism Guide</span></div>
     </a>
     <ul class="nav-links">
@@ -24,6 +25,7 @@
       <li><a href="destinations.html">Destinations</a></li>
       <li><a href="categories.html">Categories</a></li>
       <li><a href="about.html" class="active">About Us</a></li>
+      <li><a href="wishlist.html" id="wishlistNavLink">Wishlist <span class="wishlist-count-badge" id="wishlistBadge" style="display:none">0</span></a></li>
       <li><a href="contact.html">Contact</a></li>
     </ul>
     <button class="hamburger" aria-label="Toggle mobile menu">
@@ -35,6 +37,7 @@
     <a href="destinations.html">Destinations</a>
     <a href="categories.html">Categories</a>
     <a href="about.html" class="active">About Us</a>
+    <a href="wishlist.html">Wishlist</a>
     <a href="contact.html">Contact</a>
   </div>
 </nav>
@@ -92,21 +95,21 @@
 
           <div class="mission-features">
             <div class="mission-feature-item">
-              <span class="mission-feature-icon">&#128506;</span>
+              <span class="mission-feature-icon"><i class="fa-solid fa-map-location-dot"></i></span>
               <div>
                 <h4>Comprehensive Destination Guides</h4>
                 <p>Detailed information on every major destination, with tips, highlights, and best travel seasons.</p>
               </div>
             </div>
             <div class="mission-feature-item">
-              <span class="mission-feature-icon">&#128247;</span>
+              <span class="mission-feature-icon"><i class="fa-solid fa-camera"></i></span>
               <div>
                 <h4>Visual Storytelling</h4>
                 <p>High-quality photography that captures Pakistan's raw, unfiltered beauty honestly.</p>
               </div>
             </div>
             <div class="mission-feature-item">
-              <span class="mission-feature-icon">&#128154;</span>
+              <span class="mission-feature-icon"><i class="fa-solid fa-heart"></i></span>
               <div>
                 <h4>Made with Love for Pakistan</h4>
                 <p>Created by students who are proud of their country and want to share it with the world.</p>
@@ -131,42 +134,42 @@
 
       <div class="facts-grid">
         <div class="fact-card reveal">
-          <span class="fact-icon">&#9968;</span>
+          <span class="fact-icon"><i class="fa-solid fa-mountain"></i></span>
           <span class="fact-number">5</span>
           <span class="fact-label">Eight-thousander peaks (K2 is 2nd highest on Earth)</span>
         </div>
         <div class="fact-card reveal">
-          <span class="fact-icon">&#127963;</span>
+          <span class="fact-icon"><i class="fa-solid fa-landmark"></i></span>
           <span class="fact-number">6</span>
           <span class="fact-label">UNESCO World Heritage Sites</span>
         </div>
         <div class="fact-card reveal">
-          <span class="fact-icon">&#127758;</span>
+          <span class="fact-icon"><i class="fa-solid fa-earth-asia"></i></span>
           <span class="fact-number">5th</span>
           <span class="fact-label">Most populous country in the world</span>
         </div>
         <div class="fact-card reveal">
-          <span class="fact-icon">&#127956;</span>
+          <span class="fact-icon"><i class="fa-solid fa-flag"></i></span>
           <span class="fact-number">7,253m</span>
           <span class="fact-label">Tirich Mir &mdash; highest peak in Hindu Kush</span>
         </div>
         <div class="fact-card reveal">
-          <span class="fact-icon">&#10052;</span>
+          <span class="fact-icon"><i class="fa-solid fa-snowflake"></i></span>
           <span class="fact-number">3rd</span>
           <span class="fact-label">Largest glaciers outside polar regions</span>
         </div>
         <div class="fact-card reveal">
-          <span class="fact-icon">&#127981;</span>
+          <span class="fact-icon"><i class="fa-solid fa-city"></i></span>
           <span class="fact-number">5000+</span>
           <span class="fact-label">Years of civilization history (Indus Valley)</span>
         </div>
         <div class="fact-card reveal">
-          <span class="fact-icon">&#127754;</span>
+          <span class="fact-icon"><i class="fa-solid fa-water"></i></span>
           <span class="fact-number">1,046 km</span>
           <span class="fact-label">Coastline along the Arabian Sea</span>
         </div>
         <div class="fact-card reveal">
-          <span class="fact-icon">&#128172;</span>
+          <span class="fact-icon"><i class="fa-solid fa-comments"></i></span>
           <span class="fact-number">70+</span>
           <span class="fact-label">Languages spoken across the country</span>
         </div>
@@ -327,24 +330,19 @@
 
       <div class="team-grid">
         <div class="team-card reveal">
-          <div class="team-avatar">AH</div>
-          <h4>Ahmed Hassan</h4>
+          <div class="team-avatar">SF</div>
+          <h4>Saba Fatima</h4>
           <span class="role">Lead Developer</span>
         </div>
         <div class="team-card reveal">
-          <div class="team-avatar">FM</div>
-          <h4>Fatima Malik</h4>
+          <div class="team-avatar">AG</div>
+          <h4>Ayesha Gull</h4>
           <span class="role">UI / UX Designer</span>
         </div>
         <div class="team-card reveal">
-          <div class="team-avatar">BQ</div>
-          <h4>Bilal Qureshi</h4>
-          <span class="role">Content Writer</span>
-        </div>
-        <div class="team-card reveal">
-          <div class="team-avatar">ZR</div>
-          <h4>Zainab Raza</h4>
-          <span class="role">Research &amp; Data</span>
+          <div class="team-avatar">AA</div>
+          <h4>Alisha Aftab</h4>
+          <span class="role">Content &amp; Research</span>
         </div>
       </div>
 
@@ -368,10 +366,10 @@
       <div class="logo-text">Explore Pakistan<span>Tourism Guide</span></div>
       <p>Your trusted companion for discovering Pakistan's hidden gems, iconic landmarks, and unforgettable experiences.</p>
       <div class="footer-social">
-        <a href="#" aria-label="Facebook">FB</a>
-        <a href="#" aria-label="Instagram">IG</a>
-        <a href="#" aria-label="Twitter">TW</a>
-        <a href="#" aria-label="YouTube">YT</a>
+        <a href="#" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+        <a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+        <a href="#" aria-label="Twitter"><i class="fa-brands fa-x-twitter"></i></a>
+        <a href="#" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
       </div>
     </div>
     <div class="footer-col">
@@ -396,9 +394,9 @@
     </div>
     <div class="footer-col">
       <h4>Contact Info</h4>
-      <div class="footer-contact-item"><span class="icon">&#128205;</span><span>Islamabad, Pakistan</span></div>
-      <div class="footer-contact-item"><span class="icon">&#9993;</span><span>info@explorepakistan.com</span></div>
-      <div class="footer-contact-item"><span class="icon">&#128222;</span><span>+92 300 1234567</span></div>
+      <div class="footer-contact-item"><span class="icon"><i class="fa-solid fa-location-dot"></i></span><span>Islamabad, Pakistan</span></div>
+      <div class="footer-contact-item"><span class="icon"><i class="fa-solid fa-envelope"></i></span><span>info@explorepakistan.com</span></div>
+      <div class="footer-contact-item"><span class="icon"><i class="fa-solid fa-phone"></i></span><span>+92 300 1234567</span></div>
     </div>
   </div>
   <div class="footer-bottom">
@@ -406,7 +404,7 @@
   </div>
 </footer>
 
-<button id="scrollTopBtn" onclick="scrollToTop()" aria-label="Scroll to top">&#8679;</button>
+<button id="scrollTopBtn" onclick="scrollToTop()" aria-label="Scroll to top"><i class="fa-solid fa-arrow-up"></i></button>
 
 <script src="js/main.js?v=20261115-images"></script>
 <script>

@@ -917,3 +917,140 @@ footer {
   .section-title h2 { font-size: 1.7rem; }
   .btn { padding: 10px 22px; font-size: 0.88rem; }
 }
+
+
+/* ============================================================
+   WISHLIST BADGE
+   ============================================================ */
+.wishlist-count-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: #cc3333;
+  color: white;
+  border-radius: 50%;
+  width: 18px;
+  height: 18px;
+  font-size: 0.7rem;
+  font-weight: 700;
+  margin-left: 4px;
+  vertical-align: middle;
+  line-height: 1;
+}
+
+/* ============================================================
+   APPOINTMENT MODAL
+   ============================================================ */
+.appt-modal-box {
+  max-width: 600px;
+}
+
+.appt-modal-header {
+  background: linear-gradient(135deg, var(--green-dark), var(--green));
+  color: white;
+  padding: 30px 30px 25px;
+  text-align: center;
+  border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+}
+
+.appt-modal-icon {
+  font-size: 2.5rem;
+  margin-bottom: 10px;
+  opacity: 0.9;
+}
+
+.appt-modal-header h2 {
+  font-family: var(--font-heading);
+  font-size: 1.1rem;
+  font-weight: 400;
+  opacity: 0.85;
+  margin-bottom: 4px;
+  color: white;
+}
+
+.appt-modal-header h3 {
+  font-family: var(--font-heading);
+  font-size: 1.7rem;
+  margin-bottom: 4px;
+  color: white;
+}
+
+.appt-modal-header p {
+  opacity: 0.75;
+  font-size: 0.9rem;
+  color: rgba(255,255,255,0.8);
+}
+
+.appt-modal-body {
+  padding: 25px 28px 28px;
+}
+
+.appt-form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 15px;
+  margin-bottom: 15px;
+}
+
+.appt-form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-bottom: 0;
+}
+
+.appt-form-group label {
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: var(--text);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.appt-form-group label i {
+  color: var(--green);
+  font-size: 0.85rem;
+}
+
+.appt-form-group input,
+.appt-form-group select,
+.appt-form-group textarea {
+  padding: 10px 14px;
+  border: 2px solid var(--light-gray);
+  border-radius: 10px;
+  font-size: 0.9rem;
+  color: var(--dark);
+  transition: border-color 0.3s;
+  background: var(--off-white);
+}
+
+.appt-form-group input:focus,
+.appt-form-group select:focus,
+.appt-form-group textarea:focus {
+  outline: none;
+  border-color: var(--green);
+  background: white;
+  box-shadow: 0 0 0 3px rgba(0,102,0,0.08);
+}
+
+.appt-form-group textarea {
+  resize: vertical;
+  min-height: 80px;
+}
+
+.appt-form-actions {
+  display: flex;
+  gap: 12px;
+  margin-top: 20px;
+  flex-wrap: wrap;
+}
+
+@media (max-width: 540px) {
+  .appt-form-row {
+    grid-template-columns: 1fr;
+  }
+  .appt-modal-body {
+    padding: 20px;
+  }
+}

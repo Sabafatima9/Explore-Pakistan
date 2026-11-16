@@ -42,6 +42,9 @@
       link.classList.add('active');
     }
   });
+
+  /* Update wishlist badge count */
+  updateWishlistBadge();
 })();
 
 /* ---- Scroll-to-top ---- */
@@ -89,6 +92,176 @@ function showToast(message) {
   }, 3000);
 }
 
+/* ---- Wishlist (localStorage) ---- */
+function getWishlist() {
+  try {
+    return JSON.parse(localStorage.getItem('ep_wishlist') || '[]');
+  } catch (e) {
+    return [];
+  }
+}
+
+function saveWishlist(list) {
+  localStorage.setItem('ep_wishlist', JSON.stringify(list));
+  updateWishlistBadge();
+}
+
+function isInWishlist(id) {
+  return getWishlist().indexOf(id) !== -1;
+}
+
+function toggleWishlist(id) {
+  var list = getWishlist();
+  var idx = list.indexOf(id);
+  if (idx === -1) {
+    list.push(id);
+    saveWishlist(list);
+    showToast('Added to your Wishlist! \u2764\ufe0f');
+    return true;
+  } else {
+    list.splice(idx, 1);
+    saveWishlist(list);
+    showToast('Removed from Wishlist');
+    return false;
+  }
+}
+
+function updateWishlistBadge() {
+  var count = getWishlist().length;
+  var badges = document.querySelectorAll('.wishlist-count-badge');
+  badges.forEach(function (badge) {
+    if (count > 0) {
+      badge.textContent = count;
+      badge.style.display = 'inline-flex';
+    } else {
+      badge.style.display = 'none';
+    }
+  });
+}
+
+/* ---- Appointment Modal ---- */
+function openAppointmentModal(destId) {
+  var dest = getDestinationById(destId);
+  if (!dest) return;
+
+  /* Close destination modal first */
+  closeModal();
+
+  setTimeout(function () {
+    var overlay = document.createElement('div');
+    overlay.className = 'modal-overlay';
+    overlay.id = 'appointmentModal';
+
+    overlay.innerHTML =
+      '<div class="modal-box-wrapper">' +
+        '<div class="modal-box appt-modal-box">' +
+          '<button class="modal-close" onclick="closeAppointmentModal()" title="Close"><i class="fa-solid fa-xmark"></i></button>' +
+          '<div class="appt-modal-header">' +
+            '<div class="appt-modal-icon"><i class="fa-solid fa-calendar-check"></i></div>' +
+            '<h2>Book a Trip to</h2>' +
+            '<h3>' + dest.name + '</h3>' +
+            '<p>' + dest.location + '</p>' +
+          '</div>' +
+          '<div class="appt-modal-body">' +
+            '<form id="appointmentForm" onsubmit="submitAppointment(event, \'' + dest.id + '\')">' +
+              '<div class="appt-form-row">' +
+                '<div class="appt-form-group">' +
+                  '<label><i class="fa-solid fa-user"></i> Full Name</label>' +
+                  '<input type="text" id="apptName" placeholder="Your full name" required />' +
+                '</div>' +
+                '<div class="appt-form-group">' +
+                  '<label><i class="fa-solid fa-envelope"></i> Email Address</label>' +
+                  '<input type="email" id="apptEmail" placeholder="your@email.com" required />' +
+                '</div>' +
+              '</div>' +
+              '<div class="appt-form-row">' +
+                '<div class="appt-form-group">' +
+                  '<label><i class="fa-solid fa-phone"></i> Phone Number</label>' +
+                  '<input type="tel" id="apptPhone" placeholder="+92 300 0000000" />' +
+                '</div>' +
+                '<div class="appt-form-group">' +
+                  '<label><i class="fa-solid fa-users"></i> Number of Travellers</label>' +
+                  '<select id="apptTravellers">' +
+                    '<option value="1">1 person</option>' +
+                    '<option value="2" selected>2 people</option>' +
+                    '<option value="3">3 people</option>' +
+                    '<option value="4">4 people</option>' +
+                    '<option value="5+">5 or more</option>' +
+                  '</select>' +
+                '</div>' +
+              '</div>' +
+              '<div class="appt-form-row">' +
+                '<div class="appt-form-group">' +
+                  '<label><i class="fa-solid fa-calendar-days"></i> Preferred Travel Date</label>' +
+                  '<input type="date" id="apptDate" required />' +
+                '</div>' +
+                '<div class="appt-form-group">' +
+                  '<label><i class="fa-solid fa-clock"></i> Trip Duration</label>' +
+                  '<select id="apptDuration">' +
+                    '<option value="1-2 days">1 - 2 days</option>' +
+                    '<option value="3-4 days" selected>3 - 4 days</option>' +
+                    '<option value="5-7 days">5 - 7 days</option>' +
+                    '<option value="1-2 weeks">1 - 2 weeks</option>' +
+                    '<option value="2+ weeks">2+ weeks</option>' +
+                  '</select>' +
+                '</div>' +
+              '</div>' +
+              '<div class="appt-form-group">' +
+                '<label><i class="fa-solid fa-message"></i> Special Requests / Notes</label>' +
+                '<textarea id="apptNotes" rows="3" placeholder="Any special requirements, accessibility needs, or questions..."></textarea>' +
+              '</div>' +
+              '<div class="appt-form-actions">' +
+                '<button type="submit" class="btn btn-primary"><i class="fa-solid fa-paper-plane"></i> Request Appointment</button>' +
+                '<button type="button" class="btn btn-outline" onclick="closeAppointmentModal()">Cancel</button>' +
+              '</div>' +
+            '</form>' +
+            '<div id="apptSuccess" style="display:none;text-align:center;padding:30px 20px;">' +
+              '<div style="font-size:4rem;color:var(--green);margin-bottom:15px;"><i class="fa-solid fa-circle-check"></i></div>' +
+              '<h3 style="color:var(--green-dark);margin-bottom:10px;">Appointment Requested!</h3>' +
+              '<p style="color:var(--text-light);">We\'ll contact you within 24 hours to confirm your trip to <strong>' + dest.name + '</strong>.</p>' +
+              '<button class="btn btn-primary" style="margin-top:20px;" onclick="closeAppointmentModal()">Done</button>' +
+            '</div>' +
+          '</div>' +
+        '</div>' +
+      '</div>';
+
+    document.body.appendChild(overlay);
+    document.body.style.overflow = 'hidden';
+
+    /* Set min date to today */
+    var dateInput = document.getElementById('apptDate');
+    if (dateInput) {
+      var today = new Date().toISOString().split('T')[0];
+      dateInput.setAttribute('min', today);
+    }
+
+    requestAnimationFrame(function () {
+      requestAnimationFrame(function () {
+        overlay.classList.add('open');
+      });
+    });
+  }, 350);
+}
+
+function closeAppointmentModal() {
+  var overlay = document.getElementById('appointmentModal');
+  if (overlay) {
+    overlay.classList.remove('open');
+    setTimeout(function () {
+      overlay.remove();
+      document.body.style.overflow = '';
+    }, 300);
+  }
+}
+
+function submitAppointment(e, destId) {
+  e.preventDefault();
+  var form = document.getElementById('appointmentForm');
+  var success = document.getElementById('apptSuccess');
+  if (form) form.style.display = 'none';
+  if (success) success.style.display = 'block';
+}
+
 /* ---- Modal open/close ---- */
 (function initModal() {
   document.addEventListener('click', function (e) {
@@ -101,11 +274,15 @@ function showToast(message) {
     }
     if (e.target.classList.contains('modal-overlay')) {
       closeModal();
+      closeAppointmentModal();
     }
   });
 
   document.addEventListener('keydown', function (e) {
-    if (e.key === 'Escape') closeModal();
+    if (e.key === 'Escape') {
+      closeModal();
+      closeAppointmentModal();
+    }
   });
 })();
 
@@ -117,7 +294,7 @@ function openModal(dest) {
   var highlightsHtml = '';
   if (dest.highlights && dest.highlights.length) {
     var items = dest.highlights.map(function (h) {
-      return '<li>' + h + '</li>';
+      return '<li><i class="fa-solid fa-check" style="color:var(--green);font-size:0.7rem;margin-top:4px;flex-shrink:0;"></i> ' + h + '</li>';
     }).join('');
     highlightsHtml =
       '<div class="modal-highlights">' +
@@ -130,28 +307,37 @@ function openModal(dest) {
     return '<span class="tag tag-green">' + t + '</span>';
   }).join('');
 
+  var inWishlist = isInWishlist(dest.id);
+  var wishBtnLabel = inWishlist
+    ? '<i class="fa-solid fa-heart"></i> In Wishlist'
+    : '<i class="fa-regular fa-heart"></i> Add to Wishlist';
+  var wishBtnClass = inWishlist ? 'btn btn-gold' : 'btn btn-outline';
+
   overlay.innerHTML =
     '<div class="modal-box-wrapper">' +
       '<div class="modal-box">' +
-        '<button class="modal-close" onclick="closeModal()" title="Close">X</button>' +
+        '<button class="modal-close" onclick="closeModal()" title="Close"><i class="fa-solid fa-xmark"></i></button>' +
         '<img class="modal-img" src="' + dest.image + '" alt="' + dest.name + '"' +
              ' onerror="this.src=\'https://images.unsplash.com/photo-1587474260584-136574528ed5?w=800&q=80\'">' +
         '<div class="modal-content">' +
           '<div class="card-tags">' + tagsHtml + '</div>' +
           '<h2>' + dest.name + '</h2>' +
           '<div class="modal-meta">' +
-            '<span>Location: ' + dest.location + '</span>' +
-            '<span>Rating: ' + dest.rating + ' / 5.0</span>' +
-            '<span>Best Time: ' + dest.bestTime + '</span>' +
-            '<span>Type: ' + dest.category + '</span>' +
+            '<span><i class="fa-solid fa-location-dot" style="color:var(--green)"></i> ' + dest.location + '</span>' +
+            '<span><i class="fa-solid fa-star" style="color:var(--gold)"></i> ' + dest.rating + ' / 5.0</span>' +
+            '<span><i class="fa-solid fa-calendar" style="color:var(--green)"></i> Best: ' + dest.bestTime + '</span>' +
+            '<span><i class="fa-solid fa-tag" style="color:var(--green)"></i> ' + dest.category + '</span>' +
           '</div>' +
           '<p>' + (dest.fullDesc || dest.desc) + '</p>' +
           highlightsHtml +
           '<div class="modal-actions">' +
-            '<button class="btn btn-primary" onclick="showToast(\'Added to your wishlist!\'); closeModal();">' +
-              'Add to Wishlist' +
+            '<button class="btn btn-primary" onclick="openAppointmentModal(\'' + dest.id + '\')">' +
+              '<i class="fa-solid fa-calendar-check"></i> Book Appointment' +
             '</button>' +
-            '<button class="btn btn-outline" onclick="closeModal()">Close</button>' +
+            '<button class="' + wishBtnClass + '" id="wishlistModalBtn" onclick="handleWishlistToggle(\'' + dest.id + '\')">' +
+              wishBtnLabel +
+            '</button>' +
+            '<button class="btn btn-outline" onclick="closeModal()" style="margin-left:auto;">Close</button>' +
           '</div>' +
         '</div>' +
       '</div>' +
@@ -165,6 +351,20 @@ function openModal(dest) {
       overlay.classList.add('open');
     });
   });
+}
+
+function handleWishlistToggle(id) {
+  var added = toggleWishlist(id);
+  var btn = document.getElementById('wishlistModalBtn');
+  if (btn) {
+    if (added) {
+      btn.className = 'btn btn-gold';
+      btn.innerHTML = '<i class="fa-solid fa-heart"></i> In Wishlist';
+    } else {
+      btn.className = 'btn btn-outline';
+      btn.innerHTML = '<i class="fa-regular fa-heart"></i> Add to Wishlist';
+    }
+  }
 }
 
 function closeModal() {
@@ -431,9 +631,17 @@ function getDestinationById(id) {
 }
 
 /* ---- Expose globals ---- */
-window.showToast          = showToast;
-window.openModal          = openModal;
-window.closeModal         = closeModal;
-window.scrollToTop        = scrollToTop;
-window.destinations       = destinations;
-window.getDestinationById = getDestinationById;
+window.showToast               = showToast;
+window.openModal               = openModal;
+window.closeModal              = closeModal;
+window.scrollToTop             = scrollToTop;
+window.destinations            = destinations;
+window.getDestinationById      = getDestinationById;
+window.toggleWishlist          = toggleWishlist;
+window.isInWishlist            = isInWishlist;
+window.getWishlist             = getWishlist;
+window.updateWishlistBadge     = updateWishlistBadge;
+window.handleWishlistToggle    = handleWishlistToggle;
+window.openAppointmentModal    = openAppointmentModal;
+window.closeAppointmentModal   = closeAppointmentModal;
+window.submitAppointment       = submitAppointment;
